@@ -1,5 +1,5 @@
 {
-"name": "riaht2014",
+"name": "labb01",
 "version": "0.0.1",
 "description": "my beautiful app for the RIA-course",
 "author": "js222xt",
@@ -10,8 +10,11 @@
 	"react": "0.12.0",
 	"firebase": "1.1.1",
 	"reactfire": "0.1.6",
+	"contextify":"0.1.9",
 	"jshint":"2.5.10",
-	"gulp-browserify":"0.5.0"
+	"gulp-browserify":"0.5.0",
+	"gulp-jest":"0.2.2",
+	"react-tools":"0.12.0"
 },
 "repository": {
   "type": "git",
