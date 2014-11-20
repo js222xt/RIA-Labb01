@@ -1,3 +1,5 @@
+folderToc = require('folder-toc');
+
 var gulp = require('gulp'),
     browserify = require('gulp-browserify'),
     concat = require('gulp-concat');
@@ -12,20 +14,6 @@ gulp.task('browserify', function() {
 gulp.task('copyindex', function() {
     gulp.src('src/index.html')
       .pipe(gulp.dest('dist'));
-});
-
-var jest = require('gulp-jest');
-
-gulp.task('test',function(){
-    return gulp.src('__tests__').pipe(jest({
-      testDirectoryName: "spec",
-      scriptPreprocessor: './support/preprocessor.js',
-      unmockedModulePathPatterns: ['node_modules/react'],
-      testPathIgnorePatterns: [
-        "node_modules",
-        "./support"
-      ]
-    }));
 });
 
 gulp.task('docsindex', function(){
@@ -45,3 +33,6 @@ gulp.task('builddocs', function(){
 });
 
 gulp.task('docs',['builddocs','docsindex']);
+
+// Build gulp
+gulp.task('default',['docs', 'browserify', 'copyindex']);
