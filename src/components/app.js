@@ -2,7 +2,7 @@
 
 var React = require("react");
 var Firebase = require("firebase");
-  
+	
 var TodoList2 = React.createClass({
   render: function() {
     var createItem = function(item, index) {
@@ -13,26 +13,26 @@ var TodoList2 = React.createClass({
 });
 
 var TodoApp2 = React.createClass({
-  mixins: [ReactFireMixin],
-    getInitialState: function() {
-      this.items = [];
-      return {items: [], text: ""};
-    },
+	mixins: [ReactFireMixin],
+  	getInitialState: function() {
+    	this.items = [];
+    	return {items: [], text: ""};
+  	},
 
-  componentWillMount: function() {
-    var firebaseRef = new Firebase("https://sizzling-torch-8926.firebaseio.com/todo_list/");
-      this.bindAsArray(firebaseRef, "items");
-  },
+	componentWillMount: function() {
+		var firebaseRef = new Firebase("https://sizzling-torch-8926.firebaseio.com/todo_list/");
+	    this.bindAsArray(firebaseRef, "items");
+	},
 
   componentWillUnmount: function() {
     this.firebaseRef.off();
   },
 
   onChange: function(e) {
-    var current = e.target.value.substr(this.state.text.length,1).toLowerCase();
-    if(current!= 'd'){
-      this.setState({text: e.target.value});
-    }
+  	var current = e.target.value.substr(this.state.text.length,1).toLowerCase();
+  	if(current!= 'd'){
+    	this.setState({text: e.target.value});
+  	}
   },
 
   handleSubmit: function(e) {
@@ -48,7 +48,7 @@ var TodoApp2 = React.createClass({
   render: function() {
     return (
       <div>
-        <h3>TODO:</h3>
+      	<h3>TODO:</h3>
         <TodoList2 items={ this.state.items } />
         <form onSubmit={ this.handleSubmit }>
           <input onChange={ this.onChange } value={ this.state.text } />
